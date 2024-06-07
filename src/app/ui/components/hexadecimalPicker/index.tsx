@@ -7,7 +7,7 @@ interface Props  {
     id: string
 }
 export default function HexadecimalPicker ({ label, id}: Props) {
-    const ref = useRef<MutableRefObject<LegacyRef<HTMLDivElement> | undefined>>(null);
+    const ref = useRef(null);
     const [showPicker, setShowPicker] = useState(false)
     const [color, setColor] = useState<string>('#000000')
 
