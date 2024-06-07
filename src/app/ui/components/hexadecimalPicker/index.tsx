@@ -12,8 +12,8 @@ export default function HexadecimalPicker ({ label, id}: Props) {
     const [color, setColor] = useState<string>('#000000')
 
     useEffect(() => {
-        function handleClickOutside(event: MouseEvent) {
-          if (ref.current && !ref.current.contains(event.target)) {
+        function handleClickOutside(_event: MouseEvent) {
+          if (ref.current) {
             setShowPicker(prev => !prev)
           }
         }
