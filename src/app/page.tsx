@@ -2,6 +2,8 @@
 'use client'
 import { generateQRCode } from "./actions/qrCode.action";
 import { useState } from "react";
+import Input from "./ui/components/input";
+import HexadecimalPicker from "./ui/components/hexadecimalPicker";
 
 export default function Home() {
   const [qrImage, setQrImage] = useState<string>('')
@@ -28,7 +30,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center p-24">
         {qrImage && 
           <div className="flex flex-col items-center">
             <img
@@ -44,12 +46,10 @@ export default function Home() {
       <form action={handleSubmit}  className="flex flex-col w-full">
         <div className="flex gap-2">
           <div className="mb-4">
-              <label htmlFor="hexadecimal" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Hexadecimal</label>
-              <input type="text" placeholder="#ffffff" name="hexadecimal" className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+            <HexadecimalPicker id="hexadecimal" label="Hexadecimal" />
           </div> 
           <div className="w-full">
-            <label htmlFor="text" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Text</label>
-            <input type="text" name="text" id="text" className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+            <Input label="Text" id="text" />
           </div>
         </div>
         <div className="flex justify-center">
