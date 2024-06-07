@@ -1,4 +1,4 @@
-'use service'
+'use server'
 import qrCode from 'qrcode'
 
 export const generateQRCode = (formData: FormData): Promise<string> => {
